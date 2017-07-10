@@ -3,7 +3,7 @@ class Spy:#A class in simple words is a blueprint of an object . used to reuse o
     def __init__(self, name, salutation, age, rating):
         self.name = name
         self.salutation = salutation
-        self.age = age
+        self.age = int(age)
         self.rating = rating
         self.is_online = True
         self.chats = []

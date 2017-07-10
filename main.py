@@ -84,7 +84,7 @@ def chat_history():#to check message history
             print '[%s] %s said: %s' % (chat.time.strftime("%d %B %Y"), friends[read_for].name, chat.msg)
 def chat_begin(spy):
     spy.name = spy.salutation + " " + spy.name
-    if spy.age>=18 and spy.age<=45:
+    if spy.age>=12 and spy.age<=50:
         print "Welcome " + spy.name + " age: " \
               + str(spy.age) + " and rating of: " + str(spy.rating) + " :)"
         show_menu = True
@@ -125,7 +125,17 @@ elif SC == "N" or SC == "n":#for new user
     spy.age = int(spy.age)
     spy.rating = raw_input("Your rating (out of 5):")
     spy.rating = float(spy.rating)
-    chat_begin(spy)#details of new user
+    if spy.rating >=0.0 and spy.rating <= 2.0:
+        print"Poor spy rating"
+        exit()
+    elif spy.rating >2.0 and spy.rating <= 3.0:
+        print"Your spy rating is preety good"
+        chat_begin(spy)
+    elif spy.rating > 3.0 and spy.rating <=5.0:
+        print"You've superb spy rating"
+        chat_begin(spy)
+    else:
+        print"wrong input"
 else:#else statement executes if the user input does not satisfy if and elif condition
     print"wrong input"
     exit()
